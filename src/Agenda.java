@@ -56,7 +56,7 @@ public class Agenda {
         System.out.print("\n");
     }
 
-    //remover contato
+    //remover o contato mais antigo que tiver aquele nome
     public void removeContato(String nome){
         if(allContacts.size()>0) {
             for (Contato contato : allContacts) {

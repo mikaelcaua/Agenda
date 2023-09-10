@@ -8,7 +8,7 @@ public class Contato {
 
 
     //pessoa fisica
-    private int CPF;
+    private int cpf;
     private int diaNascimento;
     private int mesNascimento;
     private int anoNascimento;
@@ -17,19 +17,19 @@ public class Contato {
 
 
     //pessoa juridica
-    private int CNPJ;
+    private int cnpj;
     private int inscricaoEstadual;
 
 
 
     //verificar se é juridica ou fisica
-    private boolean PessoaFisica;
+    private boolean pessoaFisica;
 
 
 
     //construtor
     public Contato() {
-        this.PessoaFisica = false;
+        this.pessoaFisica = false;
     }
 
 
@@ -46,27 +46,27 @@ public class Contato {
     }
 
     public boolean isPessoaFisica() {
-        return PessoaFisica;
+        return pessoaFisica;
     }
 
     public void setPessoaFisica(boolean pessoaFisica) {
-        PessoaFisica = pessoaFisica;
+        this.pessoaFisica = pessoaFisica;
     }
 
     public int getCNPJ() {
-        return CNPJ;
+        return cnpj;
     }
 
     public void setCNPJ(int CNPJ) {
-        this.CNPJ = CNPJ;
+        this.cnpj = CNPJ;
     }
 
     public int getCPF() {
-        return CPF;
+        return cpf;
     }
 
     public void setCPF(int CPF) {
-        this.CPF = CPF;
+        this.cpf = CPF;
     }
 
     public String getNome() {
