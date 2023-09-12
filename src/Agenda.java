@@ -57,10 +57,25 @@ public class Agenda {
     }
 
     //remover o contato mais antigo que tiver aquele nome
-    public void removeContato(String nome){
+    public void removeContatoNome(String nome){
         if(allContacts.size()>0) {
             for (Contato contato : allContacts) {
                 if (contato.getNome().equals(nome)) {
+                    allContacts.remove(contato);
+                    break;
+                }
+            }
+        }
+        else{
+            System.out.println("A agenda ainda não tem contatos");
+        }
+    }
+
+    //remover o contato pelo cpf ou cnpj
+    public void removeContatoCPFCNPJ(int num){
+        if(allContacts.size()>0) {
+            for (Contato contato : allContacts) {
+                if (contato.getCPF()==num || contato.getCNPJ()==num) {
                     allContacts.remove(contato);
                     break;
                 }
@@ -110,15 +125,34 @@ public class Agenda {
             }
 
             if(num==2){
-                if(allContacts.size()>0) {
-                    System.out.print("Nome do contato que você deseja remover: ");
-                    scanner.nextLine();
-                    String remContato = scanner.nextLine();
-                    this.removeContato(remContato);
-                    System.out.print("\nContato removido");
+                System.out.print("1 - para remover por nome\n2 - para remover por CPF/CNPJ\n");
+                int teste = scanner.nextInt();
+                if(teste==1) {
+                    if (allContacts.size() > 0) {
+                        System.out.print("Nome do contato que você deseja remover: ");
+                        scanner.nextLine();
+                        String remContato = scanner.nextLine();
+                        this.removeContatoNome(remContato);
+                        System.out.print("\nContato removido");
+                    } else {
+                        System.out.println("A agenda ainda não tem contatos");
+                    }
                 }
                 else{
-                    System.out.println("A agenda ainda não tem contatos");
+                    if(teste==2){
+                        if (allContacts.size() > 0) {
+                            System.out.print("CPF/CNPJ do contato que você deseja remover: ");
+                            scanner.nextLine();
+                            int remContato = scanner.nextInt();
+                            this.removeContatoCPFCNPJ(remContato);
+                            System.out.print("\nContato removido");
+                        } else {
+                            System.out.println("A agenda ainda não tem contatos");
+                        }
+                    }
+                    else{
+                        System.out.println("A entrada não é valida");
+                    }
                 }
             }
 
